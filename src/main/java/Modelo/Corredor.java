@@ -9,32 +9,48 @@ package Modelo;
  *
  * @author David
  */
-public class Corredor extends Thread{
-    
+public class Corredor extends Thread {
+
     public int cantidadRecorrida = 0;
     public String nombre;
 
     public Corredor() {
     }
-    
-    
+
     public Corredor(String nombre) {
         this.nombre = nombre;
     }
-    
-    public synchronized void correr(){
-        while(cantidadRecorrida< 100){
-                cantidadRecorrida += Math.round((float)Math.random()*10);
+
+    public synchronized void correr(int figura) {
+        while (cantidadRecorrida < 50) {
+            System.out.flush();
+            cantidadRecorrida += Math.round((float) Math.random() * 5);
+            cantidadRecorrida = (cantidadRecorrida > 100)?100:cantidadRecorrida;
+            for (int i = 0; i < cantidadRecorrida; i++) {
+                System.out.print(" ");
             }
-        System.out.println("Metros= "+cantidadRecorrida+" corredor "+ nombre);
+            System.out.print((char)figura);
+            //System.out.println("Metros= " + cantidadRecorrida + " corredor " + nombre);
+        }
+        System.out.print(" | ");
+        
         notify();
     }
-    public synchronized void esperarTurno() throws InterruptedException{
+
+    public synchronized void esperarTurno(int figura) throws InterruptedException {
         wait();
-        while(cantidadRecorrida< 100){
-                cantidadRecorrida += Math.round((float)Math.random()*10);
+        while (cantidadRecorrida < 50) {
+            System.out.flush();
+            cantidadRecorrida += Math.round((float) Math.random() * 5);
+            cantidadRecorrida = (cantidadRecorrida > 100)?100:cantidadRecorrida;
+            for (int i = 0; i < cantidadRecorrida; i++) {
+                System.out.print(" ");
             }
-        System.out.println("Metros= "+cantidadRecorrida+" corredor "+ nombre);
+            System.out.print((char)figura);
+            //System.out.println("Metros= " + cantidadRecorrida + " corredor " + nombre);
+        }
+        System.out.print(" | ");
         notify();
     }
 }
+

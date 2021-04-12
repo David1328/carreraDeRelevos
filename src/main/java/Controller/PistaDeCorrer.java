@@ -27,26 +27,28 @@ public class PistaDeCorrer {
         Corredor corredorDosN = new Corredor("Corredor2 Naranja");
         Corredor corredorTresN = new Corredor("David Naranja");
         
-        Equipo equipoAzu = new Equipo("Azul");
-        Equipo equipoRoj = new Equipo("Rojo");
-        Equipo equipoNara = new Equipo("Naranja");
+        Equipo equipoAzu = new Equipo("Azul",244);
+        Equipo equipoRoj = new Equipo("Rojo",79);
+        Equipo equipoNara = new Equipo("Naranja",219);
         
-        equipoAzu.equipo.add(corredorUnoA);
-        equipoAzu.equipo.add(corredorDosA);
-        equipoAzu.equipo.add(corredorTresA);
+        equipoAzu.getEquipo().add(corredorUnoA);
+        equipoAzu.getEquipo().add(corredorDosA);
+        equipoAzu.getEquipo().add(corredorTresA);
         
-        equipoRoj.equipo.add(corredorUnoR);
-        equipoRoj.equipo.add(corredorDosR);
-        equipoRoj.equipo.add(corredorTresR);
+        equipoRoj.getEquipo().add(corredorUnoR);
+        equipoRoj.getEquipo().add(corredorDosR);
+        equipoRoj.getEquipo().add(corredorTresR);
         
         
-        equipoNara.equipo.add(corredorUnoN);
-        equipoNara.equipo.add(corredorDosN);
-        equipoNara.equipo.add(corredorTresN);
+        equipoNara.getEquipo().add(corredorUnoN);
+        equipoNara.getEquipo().add(corredorDosN);
+        equipoNara.getEquipo().add(corredorTresN);
         
         equipoAzu.start();
-        equipoRoj.start();
-        equipoNara.start();
+        
+        //equipoRoj.start();
+        
+        //equipoNara.start();
         
     }
 }

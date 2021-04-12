@@ -9,37 +9,84 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import jdk.nashorn.internal.runtime.regexp.joni.encoding.CharacterType;
 
 /**
  *
  * @author David
  */
 public class Equipo extends Thread{
-    public List<Corredor> equipo = new ArrayList<>();
-    public String nombreDelEquipo;
+
+    private List<Corredor> equipo = new ArrayList<>();
+    private String nombreDelEquipo;
+    private int figuraAscii;
 
     public Equipo() {
     }
-    
-    public Equipo(String nombreDelEquipo) {
+
+    public Equipo(String nombreDelEquipo, int figuraAscii) {
         this.nombreDelEquipo = nombreDelEquipo;
+        this.figuraAscii = figuraAscii;
     }
     
     @Override
     public void run() {
-        for (Corredor corredor : equipo) {
+        
+        for (Corredor corredor : getEquipo()) {
             corredor.start();
-            if(corredor.nombre.equals(equipo.get(0).nombre)){
-                corredor.correr();
+            if(corredor.nombre.equals(getEquipo().get(0).nombre)){
+                corredor.correr(getFiguraAscii());
             }else{
                 try {
-                    corredor.esperarTurno();
+                    corredor.esperarTurno(getFiguraAscii());
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Equipo.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
-        System.out.println("Termino el equipo"+ nombreDelEquipo);
+        System.out.print("Termino el equipo"+ getNombreDelEquipo());
+    }
+    
+    /**
+     * @return the equipo
+     */
+    public List<Corredor> getEquipo() {
+        return equipo;
+    }
+
+    /**
+     * @param equipo the equipo to set
+     */
+    public void setEquipo(List<Corredor> equipo) {
+        this.equipo = equipo;
+    }
+
+    /**
+     * @return the nombreDelEquipo
+     */
+    public String getNombreDelEquipo() {
+        return nombreDelEquipo;
+    }
+
+    /**
+     * @param nombreDelEquipo the nombreDelEquipo to set
+     */
+    public void setNombreDelEquipo(String nombreDelEquipo) {
+        this.nombreDelEquipo = nombreDelEquipo;
+    }
+
+    /**
+     * @return the figuraAscii
+     */
+    public int getFiguraAscii() {
+        return figuraAscii;
+    }
+
+    /**
+     * @param figuraAscii the figuraAscii to set
+     */
+    public void setFiguraAscii(int figuraAscii) {
+        this.figuraAscii = figuraAscii;
     }
     
 }
