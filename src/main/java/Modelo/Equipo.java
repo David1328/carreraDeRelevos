@@ -18,14 +18,14 @@ import jdk.nashorn.internal.runtime.regexp.joni.encoding.CharacterType;
 public class Equipo extends Thread{
 
     private List<Corredor> equipo = new ArrayList<>();
-    private String nombreDelEquipo;
+    private String colorDelEquipo;
     private int figuraAscii;
 
     public Equipo() {
     }
 
-    public Equipo(String nombreDelEquipo, int figuraAscii) {
-        this.nombreDelEquipo = nombreDelEquipo;
+    public Equipo(String colorDelEquipo, int figuraAscii) {
+        this.colorDelEquipo = colorDelEquipo;
         this.figuraAscii = figuraAscii;
     }
     
@@ -44,7 +44,7 @@ public class Equipo extends Thread{
                 }
             }
         }
-        System.out.print("Termino el equipo"+ getNombreDelEquipo());
+        System.out.print("Termino el equipo"+ getColorDelEquipo());
     }
     
     /**
@@ -64,15 +64,15 @@ public class Equipo extends Thread{
     /**
      * @return the nombreDelEquipo
      */
-    public String getNombreDelEquipo() {
-        return nombreDelEquipo;
+    public String getColorDelEquipo() {
+        return colorDelEquipo;
     }
 
     /**
      * @param nombreDelEquipo the nombreDelEquipo to set
      */
     public void setNombreDelEquipo(String nombreDelEquipo) {
-        this.nombreDelEquipo = nombreDelEquipo;
+        this.colorDelEquipo = nombreDelEquipo;
     }
 
     /**

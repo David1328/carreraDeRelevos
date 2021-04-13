@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Controller;
-
 import Modelo.Corredor;
 import Modelo.Equipo;
 
@@ -14,6 +13,7 @@ import Modelo.Equipo;
  */
 public class PistaDeCorrer {
     public static void main(String[] args) throws InterruptedException {
+        
         Corredor corredorUnoA = new Corredor("Corredor1 Azul");
         Corredor corredorDosA = new Corredor("Corredor2 Azul");
         Corredor corredorTresA = new Corredor("Corredor3 Azul");
@@ -38,7 +38,6 @@ public class PistaDeCorrer {
         equipoRoj.getEquipo().add(corredorUnoR);
         equipoRoj.getEquipo().add(corredorDosR);
         equipoRoj.getEquipo().add(corredorTresR);
-        
         
         equipoNara.getEquipo().add(corredorUnoN);
         equipoNara.getEquipo().add(corredorDosN);
