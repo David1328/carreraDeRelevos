@@ -17,33 +17,35 @@ public class PistaDeCorrer {
         Object equipoTres = new Object();
         
         
-        Corredor corredorUnoA = new Corredor("Corredor1 Azul",equipoUno);
-        Corredor corredorDosA = new Corredor("Corredor2 Azul",equipoUno);
-        Corredor corredorTresA = new Corredor("Corredor3 Azul",equipoUno);
+        Corredor corredorUnoA = new Corredor("A",equipoUno,33);
+        Corredor corredorDosA = new Corredor("A",equipoUno,33);
+        Corredor corredorTresA = new Corredor("A",equipoUno,34);
         
-        Corredor corredorUnoR = new Corredor("Corredor1 Rojo",equipoDos);
-        Corredor corredorDosR = new Corredor("Corredor2 Rojo",equipoDos);
-        Corredor corredorTresR = new Corredor("David Rojo",equipoDos);
+        Corredor corredorUnoR = new Corredor("R",equipoDos,33);
+        Corredor corredorDosR = new Corredor("R",equipoDos,33);
+        Corredor corredorTresR = new Corredor("R",equipoDos,34);
         
         
-        Corredor corredorUnoN = new Corredor("Corredor1 Naranja",equipoTres);
-        Corredor corredorDosN = new Corredor("Corredor2 Naranja",equipoTres);
-        Corredor corredorTresN = new Corredor("David Naranja",equipoTres);
+        Corredor corredorUnoN = new Corredor("V",equipoTres,33);
+        Corredor corredorDosN = new Corredor("V",equipoTres,33);
+        Corredor corredorTresN = new Corredor("V",equipoTres,34);
         
         //Equipo Uno
         corredorUnoA.start();
         corredorDosA.start();
         corredorTresA.start();
         
+        /*
         //Equipo Dos
         corredorUnoR.start();
         corredorDosR.start();
         corredorTresR.start();
         
+        /*
         //Equipo tres
         corredorUnoN.start();
         corredorDosN.start();
-        corredorTresN.start();
+        corredorTresN.start();*/
         
         Thread.sleep(1000);
         synchronized(equipoUno){
