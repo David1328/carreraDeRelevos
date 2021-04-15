@@ -5,7 +5,6 @@
  */
 package Controller;
 import Modelo.Corredor;
-import Modelo.Equipo;
 
 /**
  *
@@ -13,41 +12,51 @@ import Modelo.Equipo;
  */
 public class PistaDeCorrer {
     public static void main(String[] args) throws InterruptedException {
-        
-        Corredor corredorUnoA = new Corredor("Corredor1 Azul");
-        Corredor corredorDosA = new Corredor("Corredor2 Azul");
-        Corredor corredorTresA = new Corredor("Corredor3 Azul");
-        
-        Corredor corredorUnoR = new Corredor("Corredor1 Rojo");
-        Corredor corredorDosR = new Corredor("Corredor2 Rojo");
-        Corredor corredorTresR = new Corredor("David Rojo");
+        Object equipoUno = new Object();
+        Object equipoDos = new Object();
+        Object equipoTres = new Object();
         
         
-        Corredor corredorUnoN = new Corredor("Corredor1 Naranja");
-        Corredor corredorDosN = new Corredor("Corredor2 Naranja");
-        Corredor corredorTresN = new Corredor("David Naranja");
+        Corredor corredorUnoA = new Corredor("Corredor1 Azul",equipoUno);
+        Corredor corredorDosA = new Corredor("Corredor2 Azul",equipoUno);
+        Corredor corredorTresA = new Corredor("Corredor3 Azul",equipoUno);
         
-        Equipo equipoAzu = new Equipo("Azul",244);
-        Equipo equipoRoj = new Equipo("Rojo",79);
-        Equipo equipoNara = new Equipo("Naranja",219);
+        Corredor corredorUnoR = new Corredor("Corredor1 Rojo",equipoDos);
+        Corredor corredorDosR = new Corredor("Corredor2 Rojo",equipoDos);
+        Corredor corredorTresR = new Corredor("David Rojo",equipoDos);
         
-        equipoAzu.getEquipo().add(corredorUnoA);
-        equipoAzu.getEquipo().add(corredorDosA);
-        equipoAzu.getEquipo().add(corredorTresA);
         
-        equipoRoj.getEquipo().add(corredorUnoR);
-        equipoRoj.getEquipo().add(corredorDosR);
-        equipoRoj.getEquipo().add(corredorTresR);
+        Corredor corredorUnoN = new Corredor("Corredor1 Naranja",equipoTres);
+        Corredor corredorDosN = new Corredor("Corredor2 Naranja",equipoTres);
+        Corredor corredorTresN = new Corredor("David Naranja",equipoTres);
         
-        equipoNara.getEquipo().add(corredorUnoN);
-        equipoNara.getEquipo().add(corredorDosN);
-        equipoNara.getEquipo().add(corredorTresN);
+        //Equipo Uno
+        corredorUnoA.start();
+        corredorDosA.start();
+        corredorTresA.start();
         
-        equipoAzu.start();
+        //Equipo Dos
+        corredorUnoR.start();
+        corredorDosR.start();
+        corredorTresR.start();
         
-        //equipoRoj.start();
+        //Equipo tres
+        corredorUnoN.start();
+        corredorDosN.start();
+        corredorTresN.start();
         
-        //equipoNara.start();
+        Thread.sleep(1000);
+        synchronized(equipoUno){
+            equipoUno.notify();
+        }
         
+        
+        synchronized(equipoDos){
+            equipoDos.notify();
+        }
+        
+        synchronized(equipoTres){
+            equipoTres.notify();
+        }
     }
 }
