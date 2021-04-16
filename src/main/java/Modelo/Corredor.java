@@ -38,8 +38,8 @@ public class Corredor extends Thread {
                 System.out.println("ok");
             }*/
             try {
-                System.out.println("Inicializar" + ((char)this.getFigura()));
-                
+                System.out.println("Inicializar" + ((char) this.getFigura()));
+
                 this.getEquipo().wait();
 
                 while (getCantidadRecorrida() < getPosicionI()) {
@@ -51,12 +51,12 @@ public class Corredor extends Thread {
 
                         System.out.print(" ");
                     }
-
-                    System.out.print(((char)this.getFigura())+ "\n");
+                    //System.out.print(((char) this.getFigura()));
+                    System.out.print(((char) this.getFigura()) + "\n");
                     Thread.sleep(500);
                 }
 
-                System.out.print("|\n" + ((char)this.getFigura()));
+                System.out.print(" llegada-" + ((char) this.getFigura()) + "\n");
 
                 this.getEquipo().notify();
 
@@ -66,7 +66,7 @@ public class Corredor extends Thread {
         }
 
     }
-    
+
     /**
      * @return the cantidadRecorrida
      */
